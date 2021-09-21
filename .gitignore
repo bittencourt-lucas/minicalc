@@ -1,2 +1,9 @@
-# Project exclude paths
+# CMake generated files
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
 /cmake-build-debug/
+
+# Build generated files
+Makefile
+minicalc
