@@ -69,6 +69,12 @@ bool simbolo(char c) {
 Token* ProximoToken() {
     // TODO: obtem o proximo token da entrada e preenche tok
 
+    // ignora comentários, blocos iniciados com #
+    if (buffer->cont[pos] == '#') {
+        while (!eof() && buffer->cont[pos] != '\n')
+            pos++;
+    }
+
     // pula espaços em branco
     while (!eof() && isspace(buffer->cont[pos]))
         pos++;
@@ -85,7 +91,7 @@ Token* ProximoToken() {
         if (strcmp(texto, "print") == 0)
         {
             tok->tipo = TOKEN_PRINT;
-            tok->valor = 0;
+            tok->valor = 0;           
         } else {
             tok->tipo = TOKEN_ERRO;
             tok->valor = 0;
