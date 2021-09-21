@@ -26,11 +26,23 @@ void ImprimeTipoToken(TipoToken tipo) {
         case TOKEN_FECHAPAR:
             printf("TOKEN_FECHAPAR");
             break;
+        case TOKEN_ABRECOL:
+            printf("TOKEN_ABRECOL");
+            break;
+        case TOKEN_FECHACOL:
+            printf("TOKEN_FECHACOL");
+            break;
         case TOKEN_SOMA:
             printf("TOKEN_SOMA");
             break;
+        case TOKEN_SUBTRACAO:
+            printf("TOKEN_SUBTRACAO");
+            break;
         case TOKEN_MULT:
             printf("TOKEN_MULT");
+            break;
+        case TOKEN_DIVISAO:
+            printf("TOKEN_DIVISAO");
             break;
         case TOKEN_ERRO:
             printf("TOKEN_ERRO");
@@ -41,7 +53,7 @@ void ImprimeTipoToken(TipoToken tipo) {
 }
 
 int main() {
-    InicializaLexer("../test/literal.mc");
+    InicializaLexer("./test/literal.mc");
 
     Token *t = ProximoToken();
     while (t->tipo != TOKEN_EOF) {

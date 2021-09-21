@@ -10,9 +10,13 @@ typedef enum tagTipoToken {
     TOKEN_PRINT,
     TOKEN_ERRO,
     TOKEN_SOMA,
+    TOKEN_SUBTRACAO,
     TOKEN_MULT,
+    TOKEN_DIVISAO,
     TOKEN_ABREPAR,
     TOKEN_FECHAPAR,
+    TOKEN_ABRECOL,
+    TOKEN_FECHACOL,
     TOKEN_EOF
 } TipoToken;
 
