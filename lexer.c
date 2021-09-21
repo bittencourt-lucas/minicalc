@@ -96,9 +96,17 @@ Token* ProximoToken() {
         // TODO: verificar se existe erro léxico no final do literal inteiro
         while (!eof() && isdigit(buffer->cont[pos]))
             pos++;
-        char *texto = TextoToken(initPos, pos);
         tok->tipo = TOKEN_INT;
+        char *texto = TextoToken(initPos, pos);
         tok->valor = atoi(texto);
+        if (buffer->cont[pos] == '.') {
+            pos++;
+            while (!eof() && isdigit(buffer->cont[pos]))
+                pos++;
+            tok->tipo = TOKEN_FLOAT;
+            texto = TextoToken(initPos, pos);
+            tok->valor = atof(texto);
+        }
         free(texto);
     } else if (simbolo(buffer->cont[pos])) {
         switch (buffer->cont[pos]) {

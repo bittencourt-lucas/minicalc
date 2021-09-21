@@ -14,6 +14,9 @@ void ImprimeTipoToken(TipoToken tipo) {
         case TOKEN_INT:
             printf("TOKEN_INT");
             break;
+        case TOKEN_FLOAT:
+            printf("TOKEN_FLOAT");
+            break;
         case TOKEN_PRINT:
             printf("TOKEN_PRINT");
             break;

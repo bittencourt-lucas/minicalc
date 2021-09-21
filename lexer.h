@@ -7,6 +7,7 @@
 
 typedef enum tagTipoToken {
     TOKEN_INT,
+    TOKEN_FLOAT,
     TOKEN_PRINT,
     TOKEN_ERRO,
     TOKEN_SOMA,
