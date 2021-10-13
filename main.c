@@ -18,10 +18,20 @@ int AvaliaExpressao(Expressao* e) {
             v2 = AvaliaExpressao(e->op2);
             res = v1 + v2;
             break;
+        case OPER_SUBTRACAO:
+            v1 = AvaliaExpressao(e->op1);
+            v2 = AvaliaExpressao(e->op2);
+            res = v1 - v2;
+            break;
         case OPER_MULT:
             v1 = AvaliaExpressao(e->op1);
             v2 = AvaliaExpressao(e->op2);
             res = v1 * v2;
+            break;
+        case OPER_DIVISAO:
+            v1 = AvaliaExpressao(e->op1);
+            v2 = AvaliaExpressao(e->op2);
+            res = v1 / v2;
             break;
         default:
             printf("Operador nao reconhecido.\n");
