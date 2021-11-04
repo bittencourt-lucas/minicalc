@@ -21,6 +21,9 @@ void ImprimeTipoToken(TipoToken tipo) {
         case TOKEN_PRINT:
             printf("TOKEN_PRINT");
             break;
+        case TOKEN_VAR:
+            printf("TOKEN_VAR");
+            break;
         case TOKEN_EOF:
             printf("TOKEN_EOF");
             break;
@@ -51,6 +54,14 @@ void ImprimeTipoToken(TipoToken tipo) {
         case TOKEN_ERRO:
             printf("TOKEN_ERRO");
             break;
+        case TOKEN_IGUAL:
+            printf("TOKEN_IGUAL");
+            break;
+        case TOKEN_PONTOVIRG:
+            printf("TOKEN_PONTOVIRG");
+            break;
+        case TOKEN_IDENT:
+            printf("TOKEN_IDENT");
         default:
             printf("Tipo desconhecido");
     }
@@ -63,7 +74,12 @@ int main() {
     while (t->tipo != TOKEN_EOF && t->tipo != TOKEN_ERRO) {
         printf("Tipo do token: ");
         ImprimeTipoToken(t->tipo);
-        printf(" - Valor do token: %d\n", t->valor);
+        if (t->tipo == TOKEN_INT) {
+            printf(" - Valor do token: %d\n", t->valor);
+        } else if (t->tipo == TOKEN_IDENT) {
+            printf(" - Nome do identificador: %s\n", t->nome);
+        } else
+            printf("\n");
 
         t = ProximoToken();
     }

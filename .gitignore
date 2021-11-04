@@ -7,3 +7,4 @@ CMakeCache.txt
 # Build generated files
 Makefile
 minicalc
+lexertest

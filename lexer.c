@@ -59,7 +59,9 @@ bool simbolo(char c) {
         c == '*' ||
         c == '/' ||
         c == '+' ||
-        c == '-'
+        c == '-' ||
+        c == '=' ||
+        c == ';'
     );
 }
 
@@ -67,7 +69,7 @@ bool simbolo(char c) {
 //
 // Dado o arquivo-fonte, obtem e retorna o próximo token
 Token* ProximoToken() {
-    // TODO: obtem o proximo token da entrada e preenche tok
+    // obtem o proximo token da entrada e preenche tok
 
     // ignora comentários, blocos iniciados com #
     if (buffer->cont[pos] == '#') {
@@ -84,14 +86,17 @@ Token* ProximoToken() {
         tok->valor = 0;
     } else if (isalpha(buffer->cont[pos])) {
         long initPos = pos;
-        while (!eof() && !isspace(buffer->cont[pos]))
+        while (!eof() && !isspace(buffer->cont[pos]) && !simbolo(buffer->cont[pos]))
             pos++;
         // texto do token: entre initPos e pos-1 no buffer
         char *texto = TextoToken(initPos, pos);
         if (strcmp(texto, "print") == 0)
         {
             tok->tipo = TOKEN_PRINT;
-            tok->valor = 0;           
+            tok->valor = 0;  
+        } else if (strcmp(texto, "var") == 0) {
+            tok->tipo = TOKEN_VAR;
+            tok->valor = 0;         
         } else {
             tok->tipo = TOKEN_ERRO;
             tok->valor = 0;
@@ -139,6 +144,12 @@ Token* ProximoToken() {
                 break;
             case '/':
                 tok->tipo = TOKEN_DIVISAO;
+                break;
+            case '=':
+                tok->tipo = TOKEN_IGUAL;
+                break;
+            case ';':
+                tok->tipo = TOKEN_PONTOVIRG;
                 break;
             default:
                 fprintf(stderr, "Simbolo não esperado: %c\n", buffer->cont[pos]);

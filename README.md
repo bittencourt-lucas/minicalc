@@ -1,5 +1,4 @@
-MiniCalc
-========
+# MiniCalc
 
 Uma linguagem simples para cálculo de expressões aritméticas.
 O interpretador para a linguagem será desenvolvido em estágios, começando
@@ -17,23 +16,26 @@ print E
 sendo E uma expressão. As expressões podem ser:
 
 ```
-E ::= (E + E) | (E * E) 
+E ::= (E + E) | (E * E)
 E ::= <numero>
 ```
 
 `<numero>` é um número inteiro.
 
 Exemplo 1:
+
 ```
 print 2
 ```
 
 Exemplo 2:
+
 ```
 print (4 + 5)
 ```
 
 Exemplo 3:
+
 ```
 print (4 + (2 * 3))
 ```
@@ -42,11 +44,45 @@ print (4 + (2 * 3))
 
 Mais operações.
 
-
 ## Estágio 3
 
-Variáveis.
+Inlcui a possibilidade de declarar e utilizar variáveis nas expressões.
 
+Programas são da forma
+
+```
+var <ident> = E;
+var <ident> = E;
+...
+print E
+```
+
+`<ident>` é um identificador. Um identificador é uma sequência de caracteres,
+começando por uma letra, que pode incluir letras, dígitos e o caractere
+sublinhado (underline).
+
+As expressões podem ser:
+
+```
+E ::= (E + E) | (E * E)
+E ::= <numero> | <ident>
+```
+
+Exemplo 1:
+
+```
+var x = 42;
+var y = 11;
+print (x + (y * 31))
+```
+
+Exemplo 2:
+
+```
+var x = (42 + 78);
+var y = (x * 278);
+print (x + (y * 31))
+```
 
 ## Estágio 4
 
