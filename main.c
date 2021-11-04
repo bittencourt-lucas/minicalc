@@ -4,6 +4,7 @@
 #include "arq.h"
 #include "lexer.h"
 #include "parser.h"
+#include "var.h"
 
 int AvaliaExpressao(Expressao* e) {
     int res = 0;

@@ -1,1 +1,4 @@
-print [(10 - (20 / 20)) + 27]
+var x = 3;
+var y = (x * 14);
+var z = (x + y);
+print (x * (y + z))

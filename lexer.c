@@ -93,13 +93,13 @@ Token* ProximoToken() {
         if (strcmp(texto, "print") == 0)
         {
             tok->tipo = TOKEN_PRINT;
-            tok->valor = 0;  
+            tok->valor = 0;
         } else if (strcmp(texto, "var") == 0) {
             tok->tipo = TOKEN_VAR;
-            tok->valor = 0;         
-        } else {
-            tok->tipo = TOKEN_ERRO;
             tok->valor = 0;
+        } else {
+            tok->tipo = TOKEN_IDENT;
+            strcpy(tok->nome, texto);
         }
         free(texto);
     } else if (isdigit(buffer->cont[pos])) {
